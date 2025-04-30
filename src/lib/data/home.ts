@@ -9,14 +9,14 @@ const hero: {
 	description: string;
 	links: Array<{ label: string; href: string; icon: `i-carbon-${string}` }>;
 } = {
-	title: `${BaseData.fullName},`,
+	title: `Irman Wafi,`,
 	description:
-		'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+		"Data Analyst and software enthusiast from Kuala Lumpur specializing in data visualization, analytics, and machine learning. Experienced in Python, R, SQL, and Power BI with a background in government and energy sectors. Recent Bachelor's graduate in Information Systems (Intelligent Systems Engineering) with a 3.67 GPA from UiTM Shah Alam. Passionate about finding meaningful insights in data and creating user-friendly data solutions.",
 	links: [
-		{ label: 'GitHub', href: 'https://github.com', icon: 'i-carbon-logo-github' },
-		{ label: 'LinkedIn', href: 'https://linkedin.com', icon: 'i-carbon-logo-linkedin' },
-		{ label: 'Twitter', href: 'https://twitter.com', icon: 'i-carbon-logo-twitter' },
-		{ label: 'Email', href: 'mailto:riadh.adrani@pm.me', icon: 'i-carbon-at' }
+		{ label: 'GitHub', href: 'https://github.com/irmanwafi', icon: 'i-carbon-logo-github' },
+		{ label: 'LinkedIn', href: 'https://linkedin.com/in/irmanwafi', icon: 'i-carbon-logo-linkedin' },
+		{ label: 'Portfolio', href: 'https://irmanwafi.site', icon: 'i-carbon-globe' },
+		{ label: 'Email', href: 'mailto:irmanwafirosli@gmail.com', icon: 'i-carbon-at' }
 	]
 };
 

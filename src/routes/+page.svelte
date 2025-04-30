@@ -36,6 +36,17 @@
 		<div
 			class="flex flex-col items-center justify-center gap-4 text-center md:items-start md:text-left"
 		>
+			<!-- Profile Image - Professional glassy look -->
+			<div class="mb-4 flex justify-center md:justify-start">
+				<div class="overflow-hidden rounded-lg border border-white/30 shadow-xl dark:shadow-white/5 backdrop-blur-sm bg-background/50 dark:bg-background/30 p-1.5 transition-all duration-300 hover:border-white/50 dark:border-white/20 dark:hover:border-white/40 dark:hover:shadow-white/10 relative">
+					<img
+						src="/profilepic.jpg"
+						alt="Irman Wafi"
+						class="h-[200px] w-[250px] object-cover rounded-md"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 dark:from-transparent dark:via-white/5 dark:to-white/15 opacity-0 dark:opacity-30 pointer-events-none"></div>
+				</div>
+			</div>
 			<H1>{HomeData.hero.title}</H1>
 			<Muted>{HomeData.hero.description}</Muted>
 			<div class="flex flex-row gap-1">

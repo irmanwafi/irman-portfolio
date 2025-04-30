@@ -5,28 +5,40 @@ const title = 'Education';
 
 const items: Array<Education> = [
 	{
-		degree: 'Bachelor degree of Computer Science',
-		description: '',
-		location: 'Tunisia',
+		degree: 'Bachelor of Information Systems (Hons) Intelligent Systems Engineering',
+		description: 'Studied various aspects of intelligent systems engineering, including machine learning, data mining, object-oriented programming, and intelligent systems design. Achieved a GPA of 3.67.',
+		location: 'Shah Alam, Malaysia',
 		logo: Assets.Unknown,
-		name: '',
-		organization: 'ISTIC',
-		period: { from: new Date(2020, 0, 1), to: new Date(2022, 5, 1) },
-		shortDescription: '',
-		slug: 'dummy-education-item',
-		subjects: ['C', 'Algorithm', 'Algebra', 'Python', 'C++', 'Java', 'English']
+		name: 'Computer Science and Information Systems',
+		organization: 'UiTM Shah Alam',
+		period: { from: new Date(2020, 8, 1), to: new Date(2024, 8, 1) },
+		shortDescription: 'Bachelor\'s degree in Intelligent Systems Engineering with focus on machine learning and data analytics.',
+		slug: 'uitm-shah-alam',
+		subjects: ['Machine Learning', 'Data Mining', 'Object-Oriented Programming', 'Intelligent Systems', 'Database Management', 'Software Engineering']
 	},
 	{
-		degree: 'PhD of Computer Science',
-		description: '',
-		location: 'USA',
+		degree: 'Foundation in Computer Science',
+		description: 'Completed foundation studies in Computer Science, building a strong base in mathematics, programming, and computer fundamentals.',
+		location: 'Selangor, Malaysia',
 		logo: Assets.Unknown,
-		name: '',
-		organization: 'MIT',
-		period: { from: new Date(2023, 0, 1) },
-		shortDescription: '',
-		slug: 'dummy-education-item-2',
-		subjects: ['Assembly', 'Rust', 'Computer Architecture', 'Algorithms and Data structures']
+		name: 'Computer Science Foundation',
+		organization: 'Selangor Matriculation College',
+		period: { from: new Date(2019, 6, 1), to: new Date(2020, 5, 1) },
+		shortDescription: 'Foundation program in Computer Science with emphasis on mathematics and programming fundamentals.',
+		slug: 'selangor-matriculation',
+		subjects: ['Mathematics', 'Computer Programming', 'Physics', 'Chemistry']
+	},
+	{
+		degree: 'Secondary School Certificate',
+		description: 'Completed secondary education with a focus on engineering drawing and technical subjects.',
+		location: 'Selangor, Malaysia',
+		logo: Assets.Unknown,
+		name: 'Secondary Education',
+		organization: 'SMK Salak Tinggi',
+		period: { from: new Date(2014, 0, 1), to: new Date(2018, 11, 31) },
+		shortDescription: 'Secondary education with focus on engineering drawing.',
+		slug: 'smk-salak-tinggi',
+		subjects: ['Engineering Drawing', 'Mathematics', 'Physics', 'Chemistry']
 	}
 ];
 
