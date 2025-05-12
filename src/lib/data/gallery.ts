@@ -14,6 +14,10 @@ export type GalleryItem = Screenshot & {
     description: string;
     category: string;
     date: Date;
+    type?: 'image' | 'video';
+    videoId?: string;
+    autoplay?: boolean;
+    videoFormat?: 'horizontal' | 'vertical' | 'standard'; // For different aspect ratios
 };
 
 // Gallery categories
@@ -36,7 +40,72 @@ const categories: Array<GalleryCategory> = [
 ];
 
 // Gallery items
-const items: Array<GalleryItem> = [
+const items: Array<GalleryItem> = [    {
+        label: 'Cinematic Drone Landscapes',
+        src: '',
+        description: 'Beautiful cinematic drone footage over diverse landscapes and natural environments.',
+        category: 'drone',
+        date: new Date(2025, 5, 13),
+        type: 'video',
+        videoId: 'UB1EoLxWDAw',
+        autoplay: true,
+        videoFormat: 'standard'
+    },
+    {
+        label: 'Aerial 1',
+        src: '',
+        description: 'Drone aerial footage showcasing stunning landscapes and perspectives from above.',
+        category: 'drone',
+        date: new Date(2025, 4, 12),
+        type: 'video',
+        videoId: '5gXKRptw8o0',
+        autoplay: true,
+        videoFormat: 'vertical'
+    },
+    {
+        label: 'Aerial 2 - Horizontal Drone View',
+        src: '',
+        description: 'Wide panoramic horizontal drone footage of beautiful landscapes.',
+        category: 'drone',
+        date: new Date(2025, 4, 11),
+        type: 'video',
+        videoId: 'TscIzE10OtA',
+        autoplay: false,
+        videoFormat: 'horizontal'
+    },
+    {
+        label: 'Aerial 3 - Vertical Exploration',
+        src: '',
+        description: 'Vertical drone footage capturing the beauty from above.',
+        category: 'drone',
+        date: new Date(2025, 4, 10),
+        type: 'video',
+        videoId: 'ibMl5YCkJLE',
+        autoplay: false,
+        videoFormat: 'vertical'
+    },
+    {
+        label: 'Aerial 4 - Cinematic Flight',
+        src: '',
+        description: 'Extended cinematic drone footage with smooth movements and scenic views.',
+        category: 'drone',
+        date: new Date(2025, 4, 9),
+        type: 'video',
+        videoId: 'e9qoEBQmKjI',
+        autoplay: false,
+        videoFormat: 'standard'
+    },
+    {
+        label: 'Aerial 5 - Landscape Survey',
+        src: '',
+        description: 'Professional drone survey of diverse landscapes and terrains.',
+        category: 'drone',
+        date: new Date(2025, 4, 8),
+        type: 'video',
+        videoId: 'Z8V1shjZqRc',
+        autoplay: false,
+        videoFormat: 'standard'
+    },
     {
         label: 'Kuala Lumpur Skyline',
         src: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3VhbGElMjBsdW1wdXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',

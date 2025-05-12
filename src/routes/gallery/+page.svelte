@@ -1,3 +1,4 @@
+<!-- filepath: c:\Users\Irman\Desktop\lit-space\irman-portfolio\src\routes\gallery\+page.svelte -->
 <script lang="ts">
 	import BasePage from '$lib/components/common/base-page/base-page.svelte';
 	import Badge from '$lib/components/ui/badge/badge.svelte';
@@ -102,15 +103,33 @@
 			</div>
 			
 			<Carousel bind:api class="w-full" opts={{ loop: true }}>
-				<CarouselContent>
-					{#each filteredItems.slice(0, 5) as item}
+				<CarouselContent>					{#each filteredItems.slice(0, 5) as item}
 						<CarouselItem class="md:basis-1/2 lg:basis-1/3">
 							<Dialog>
 								<DialogTrigger>
 									<Card
 										class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[250px] cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15"
-										style={`background-image:url("${item.src}")`}
+										style={item.type !== 'video' ? `background-image:url("${item.src}")` : ''}
 									>
+										{#if item.type === 'video'}
+											<div class="flex-1 overflow-hidden relative">
+												<div class="absolute inset-0 flex items-center justify-center">
+													<img 
+														src={`https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`} 
+														alt={item.label}
+														class="w-full h-full object-cover"
+													/>
+													<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+														<Icon icon="i-carbon-play-circle" className="w-12 h-12 text-white" />
+														<!-- Show video format badge -->
+														<Badge class="absolute bottom-2 right-2">
+															{item.videoFormat === 'vertical' ? 'Shorts' : 
+															item.videoFormat === 'horizontal' ? 'Landscape' : 'Standard'}
+														</Badge>
+													</div>
+												</div>
+											</div>
+										{/if}
 										<CardFooter class="rounded-b-md bg-[#00000099] pt-4 text-white backdrop-blur-sm">
 											{item.label}
 										</CardFooter>
@@ -118,10 +137,49 @@
 								</DialogTrigger>
 								<DialogContent class="flex min-h-[70%] max-h-[90vh] min-w-[70%] flex-col">
 									<DialogTitle>{item.label}</DialogTitle>
-									<div
-										class="flex-1 bg-cover bg-center bg-no-repeat"
-										style={`background-image: url("${item.src}")`}
-									></div>
+									{#if item.type === 'video'}
+										<div class="flex-1 relative flex items-center justify-center bg-black">
+											{#if item.videoFormat === 'vertical'}
+												<div style="max-width: 350px; width: 100%; max-height: 100%; margin: 0 auto;">
+													<iframe
+														style="aspect-ratio: 9/16; width: 100%; height: 100%;"
+														src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+														title={item.label}
+														frameborder="0"
+														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+														allowfullscreen
+													></iframe>
+												</div>
+											{:else if item.videoFormat === 'horizontal'}
+												<div style="max-width: 100%; width: 100%; max-height: 100%;">
+													<iframe
+														style="aspect-ratio: 16/9; width: 100%; height: 100%;"
+														src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+														title={item.label}
+														frameborder="0"
+														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+														allowfullscreen
+													></iframe>
+												</div>
+											{:else}
+												<div style="max-width: 100%; width: 100%; max-height: 100%;">
+													<iframe
+														style="aspect-ratio: 16/9; width: 100%; height: 100%;"
+														src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+														title={item.label}
+														frameborder="0"
+														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+														allowfullscreen
+													></iframe>
+												</div>
+											{/if}
+										</div>
+									{:else}
+										<div
+											class="flex-1 bg-cover bg-center bg-no-repeat"
+											style={`background-image: url("${item.src}")`}
+										></div>
+									{/if}
 									<Muted class="py-2">{item.description}</Muted>
 									<Muted class="text-sm">{formatDate(item.date)}</Muted>
 									<DialogFooter>
@@ -149,14 +207,32 @@
 				<Separator class="flex-1" />
 			</div>
 			
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-				{#each filteredItems as item}
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">				{#each filteredItems as item}
 					<Dialog>
 						<DialogTrigger>
 							<Card
 								class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[200px] cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15"
-								style={`background-image:url("${item.src}")`}
+								style={item.type !== 'video' ? `background-image:url("${item.src}")` : ''}
 							>
+								{#if item.type === 'video'}
+									<div class="flex-1 overflow-hidden relative">
+										<div class="absolute inset-0 flex items-center justify-center">
+											<img 
+												src={`https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`} 
+												alt={item.label}
+												class="w-full h-full object-cover"
+											/>
+											<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+												<Icon icon="i-carbon-play-circle" className="w-12 h-12 text-white" />
+												<!-- Show video format badge -->
+												<Badge class="absolute bottom-2 right-2">
+													{item.videoFormat === 'vertical' ? 'Shorts' : 
+													item.videoFormat === 'horizontal' ? 'Landscape' : 'Standard'}
+												</Badge>
+											</div>
+										</div>
+									</div>
+								{/if}
 								<Separator />
 								<CardFooter class="rounded-b-md bg-[#00000099] pt-4 text-white backdrop-blur-sm">
 									{item.label}
@@ -165,10 +241,49 @@
 						</DialogTrigger>
 						<DialogContent class="flex min-h-[70%] max-h-[90vh] min-w-[70%] flex-col">
 							<DialogTitle>{item.label}</DialogTitle>
-							<div
-								class="flex-1 bg-cover bg-center bg-no-repeat"
-								style={`background-image: url("${item.src}")`}
-							></div>
+							{#if item.type === 'video'}
+								<div class="flex-1 relative flex items-center justify-center bg-black">
+									{#if item.videoFormat === 'vertical'}
+										<div style="max-width: 350px; width: 100%; max-height: 100%; margin: 0 auto;">
+											<iframe
+												style="aspect-ratio: 9/16; width: 100%; height: 100%;"
+												src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+												title={item.label}
+												frameborder="0"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+												allowfullscreen
+											></iframe>
+										</div>
+									{:else if item.videoFormat === 'horizontal'}
+										<div style="max-width: 100%; width: 100%; max-height: 100%;">
+											<iframe
+												style="aspect-ratio: 16/9; width: 100%; height: 100%;"
+												src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+												title={item.label}
+												frameborder="0"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+												allowfullscreen
+											></iframe>
+										</div>
+									{:else}
+										<div style="max-width: 100%; width: 100%; max-height: 100%;">
+											<iframe
+												style="aspect-ratio: 16/9; width: 100%; height: 100%;"
+												src={`https://www.youtube.com/embed/${item.videoId}?autoplay=${item.autoplay ? '1' : '0'}&loop=1&rel=0&modestbranding=1&playsinline=1`}
+												title={item.label}
+												frameborder="0"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+												allowfullscreen
+											></iframe>
+										</div>
+									{/if}
+								</div>
+							{:else}
+								<div
+									class="flex-1 bg-cover bg-center bg-no-repeat"
+									style={`background-image: url("${item.src}")`}
+								></div>
+							{/if}
 							<Muted class="py-2">{item.description}</Muted>
 							<Muted class="text-sm">{formatDate(item.date)}</Muted>
 							<DialogFooter>
