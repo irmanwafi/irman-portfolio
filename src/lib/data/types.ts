@@ -18,7 +18,9 @@ export enum ContractType {
 	SelfEmployed = 'Self-employed',
 	Freelance = 'Freelance',
 	Contract = 'Contract',
-	Internship = 'Internship'
+	Internship = 'Internship',
+	Apprenticeship = 'Apprenticeship',
+	Protege = 'Protégé'
 }
 
 export type Asset = { light: string; dark: string };
@@ -83,4 +85,5 @@ export interface Education<S extends string = string> extends Item<S> {
 	};
 	subjects: Array<string>;
 	degree: string;
+	color: Color;
 }

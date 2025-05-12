@@ -1,8 +1,8 @@
-import { href } from '$lib/utils';
+import { base } from '$app/paths';
 
-const title = 'Resumé';
+const title = 'Resume';
 
-const resume = href('/pdf/resume.pdf');
+const resume = `${base}/pdf/Resume_IrmanWafi.pdf`;
 
 const ResumeData = { title, resume };
 

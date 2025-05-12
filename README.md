@@ -1,136 +1,125 @@
-# Slick Portfolio With Svelte.
+# Irman Wafi's Portfolio
 
-Vercel-like style portfolio template for developers.
+Hi and salam! 👋 This is my personal portfolio website built with Svelte. It showcases my journey through professional experiences, education, and various projects I've worked on. 
 
-[For a reference, check out my personal protfolio, slightly changed, but uses this template.](https://riadhadrani.github.io/RiadhAdrani)
+> **Note**: Some images and content in this repository are my personal assets. If you're planning to use this, make sure to replace them with your own.
 
-## Libraries
+## 🌐 Live
 
-The main libraries used here are :
+[![Portfolio](https://img.shields.io/badge/My_Portfolio-irmanwafi.website-blue?style=for-the-badge&logo=svelte&logoColor=white&labelColor=black)](https://irmanwafi.website) [![Cloudflare](https://img.shields.io/badge/Powered_by-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white&labelColor=black)](https://pages.cloudflare.com/)
 
-- `shadcn-svelte` : component library.
-- `tailwindcss` : css styling.
-- `unocss` : fonts and icons.
-  - using `carbon` (and thus the icon names `i-carbon-*`) icons that could be browsed [here](https://icones.js.org/collection/carbon)
-- `mode-watcher` : color mode utility.
-- `prismjs` : markdown parsing in combination with `marked`, `marked-mangle`, `marked-gfm-heading-id` and `dompurify`.
+## 🛠️ Tech Stack
 
-## Create
+- **Framework**: [SvelteKit](https://kit.svelte.dev/)
+- **Styling**: 
+  - [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS
+  - [shadcn-svelte](https://www.shadcn-svelte.com/) - Beautiful UI components
+- **Icons & Fonts**: 
+  - [UnoCSS](https://unocss.dev/) with Carbon Icons
+  - Browse icons at [Icônes](https://icones.js.org/collection/carbon)
+- **Theme**: [mode-watcher](https://github.com/bluwy/mode-watcher) for dark/light mode
+- **Markdown**: Powered by PrismJS, marked, and DOMPurify
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
 
-You can either clone or fork this repository :
+## 🚀 Quick Start
 
-### `fork`
+### Prerequisites
 
-You can fork the project, maintaining a link to the original repo using the `fork` button, make sure the check the `Copy the master branch only` checkbox.
+- Node.js >= 16 (i use 20.17.0)
+- pnpm (prefer to use this)
 
-![alt text](./screenshots/image.png)
+### Installation
 
-### `clone`
-
-- using `git` :
-
+1. Clone the repository:
 ```bash
-# ssh
-git clone git@github.com:RiadhAdrani/slick-portfolio-svelte-5.git protfolio
-
-# https
-git clone https://github.com/RiadhAdrani/slick-portfolio-svelte-5.git protfolio
+git clone https://github.com/irmanwafi/irman-portfolio.git
+cd irman-portfolio
 ```
 
-- using `degit` npm executable :
-
+2. Install dependencies:
 ```bash
-npx degit RiadhAdrani/slick-portfolio-svelte-5 portfolio
+pnpm install
 ```
 
-if you don't have `degit`, it will prompt you to accept, enter `y`.
-
-> You can add the main repo as another remote repo to maintain updates in the future.
->
-> ```bash
-> # ssh
-> git remote add main git@github.com:RiadhAdrani/slick-portfolio-svelte-5.git
-> ```
-
-## Deploy to GitHub pages
-
-Before deploying to `GitHub Pages`:
-
-### Enable workflows for `Forks`
-
-If you forked the repo, go to the `Actions` tab in the newly generated repository, and enable workflows, click on the green button `I understand my workflows, go ahead and enable them` :
-
-![alt text](./screenshots/enable-fork-workflow.png)
-
-### Actions Settings
-
-Allow `GitHub Pages` in your repo settings with correct permissions:
-
-- go to your repo `Settings` > `Actions` > `General`
-- in `Actions permissions` : make sure that `Allow all actions and reusable workflows` checkbox is checked
-
-![alt text](./screenshots/settings-actions.png)
-
-### svelte.config.js
-
-Depending on the name of your repository, you would like to set the `base` variable to that, starting with a leading slash like this:
-
-```js
-const base = '/slick-portfolio-svelte';
-```
-
-But if your repository name is the same as your Github domain name; my Github name is `RiadhAdrani` so my domain name is `riadhadrani.github.io` (lower cased), and so the special repository name is also `riadhadrani.github.io`: if that is the case, you need to set the base to an empty string
-
-```js
-const base = '';
-```
-
-### Launching the build and deploy workflow
-
-If you didn't commit and push the changes in the `svelte.config.js` yet, you can do that now, otherwise you can create an empty commit:
-
+3. Start the development server:
 ```bash
-git commit --allow-empty -m "chore: trigger workflow"
+pnpm run dev
 ```
 
-and push it to your `master` or `main` branch.
+The site will be available at `http://localhost:5173`
 
-In the `Actions` tab, make sure that the `Build and Deploy` workflow is successful (wait for it to complete): you should have at least one successfull workflow run:
+### Build
 
-![alt text](./screenshots/build-and-deploy-action.png)
+To create a production build:
+```bash
+pnpm run build
+```
 
-### Enable GitHub pages
+To preview the build locally:
+```bash
+pnpm run preview
+```
 
-- go to your repo's `Settings` > `Pages`
-- in Source section, select `Deploy from a branch`.
-- in Branch section, select `gh-pages` and `/ (root)` and click on save
+## 🌍 Deployment
 
-![alt text](./screenshots/enable-gh-pages.png)
+This site is running on Cloudflare Pages. To deploy your own version:
 
-Again in the `Actions` tab, make sure that the `pages-build-deployment` workflow is successful (wait for it to complete): you should have at least one successfull workflow run:
+1. Fork this repository
+2. Create a Cloudflare Pages project
+3. Connect your repository
+4. Configure the build settings:
+   - Build command: `pnpm run build`
+   - Build output directory: `build`
+   - Environment variables:
+     - `NODE_VERSION`: 20.17.0
 
-![alt text](./screenshots/pages-build-deployment-action.png)
+## 📁 Project Structure
 
-> If for some reason no action was launched, try pushing empty commit.
+```
+src/
+├── lib/            # Core components and utilities
+│   ├── components/ # UI components
+│   ├── data/      # Content data
+│   └── utils/     # Helper functions
+├── routes/         # Pages and routing
+└── app.html       # HTML template
+```
 
-## That's it
+## ✨ Current Features
 
-That's it, you can click on the latest deployment and visit it.
+- 🌗 Dark/Light mode
+- 📱 Fully responsive design
+- 🎨 Clean and modern UI
+- ⚡ Fast performance
+- 📊 Experience timeline
+- 🎓 Education showcase
+- 💼 Project portfolio
+- 🔍 Full-text search
 
-## Adapt to your needs
+## 🚧 Upcoming Features *will do it on my free time hehe
 
-If you want to use the template as it is, you can :
+- 🤖 AI-powered features:
+  - Chat interface using local LLMs (Ollama)
+  - Smart project recommendations
+  - Auto-generated project summaries
+  - Code explanation feature
+- 📊 Interactive data visualizations
+- 🗣️ Blog section for tech articles
+- 🌐 Multi-language support
+- 📱 Progressive Web App (PWA) support
+- 🔄 Real-time project updates
+- 📈 GitHub contributions graph
+- 💬 Comments section for blog posts
+- 📧 Contact form with anti-spam protection
 
-- update files in `src/lib/data` with your data.
-- update `src/lib/index.css` for custom styling.
-- update `src/lib/index.css` for custom markdown styling.
+## 🛠️ Customization
 
-- update `static/favicon.png` to customize the tab's icon.
+Want to make it your own? Here's what you need to modify:
 
-- You can find `shadcn-svelte` component in `src/lib/components/ui`, other components are arranged by their page, or in the `common` folder.
+1. Update your information in `src/lib/data/`
+2. Customize the theme in `src/app.css`
+3. Modify markdown styles in `src/markdown.css`
+4. Replace the logos in `static/logos/`
+5. Change `static/favicon.png` to your own icon
 
-But feel free to explore and hack the template to your needs if you feel like it.
-
-## Known issues:
-
-- Svelte no longer support `node 14`, use a newer version instead.
+Remember to replace all personal images in the `static/` directory with your own! Tqsm.

@@ -1,12 +1,23 @@
 import { base } from '$app/paths';
 
-const url = (file: string) => `${base}/logos/${file}`;
+const url = (file: string, folder: string = 'logos') => `${base}/${folder}/${file}`;
 
-const asset = (lightFilename: string, darkFilename = lightFilename) => {
-	return { light: url(lightFilename), dark: url(darkFilename) };
+const asset = (lightFilename: string, darkFilename = lightFilename, folder: string = 'logos') => {
+	return { light: url(lightFilename, folder), dark: url(darkFilename, folder) };
 };
 
 const Assets = {
+	// Company logos
+	Aga: asset('aga.png', 'aga.png', 'logos-exp'),
+	Dosm: asset('dosm.png', 'dosm.png', 'logos-exp'),
+	Petronas: asset('petronas.svg', 'petronas.svg', 'logos-exp'),
+	Sigma: asset('sigma.jpeg', 'sigma.jpeg', 'logos-exp'),
+
+	// Education logos
+	UiTM: asset('uitm.png', 'uitm.png', 'logos-edu'),
+	Matrikulasi: asset('matrikulasi.png', 'matrikulasi.png', 'logos-edu'),
+	SMKBBST: asset('smkbbst.png', 'smkbbst.png', 'logos-edu'),
+
 	AWS: asset('aws.svg'),
 	Bootstrap: asset('bootstrap.svg'),
 	C: asset('c.svg'),
@@ -69,7 +80,24 @@ const Assets = {
 	Jest: asset('jest.png'),
 	Unocss: asset('unocss.svg'),
 	Ruvy: asset('ruvy.svg'),
-	Postcss: asset('postcss.svg')
+	Postcss: asset('postcss.svg'),
+
+	// New assets from logos-new
+	R: asset('Rlogo.svg', 'Rlogo.svg', 'logos-new'),
+	GitHub: asset('github.png', 'github.png', 'logos-new'),
+	GitLab: asset('gitlab.svg', 'gitlab.svg', 'logos-new'),
+	VSCode: asset('vscode.svg', 'vscode.svg', 'logos-new'),
+	Figma: asset('figma.png', 'figma.png', 'logos-new'),
+	Obsidian: asset('obsidian.png', 'obsidian.png', 'logos-new'),
+	DBeaver: asset('DBeaver.png', 'DBeaver.png', 'logos-new'),
+	Cloudflare: asset('cloudflare.svg', 'cloudflare.svg', 'logos-new'),
+	Supabase: asset('supabase.svg', 'supabase.svg', 'logos-new'),
+	PowerBI: asset('powerbi.png', 'powerbi.png', 'logos-new'),
+	Metabase: asset('metabase.png', 'metabase.png', 'logos-new'),
+	Ollama: asset('ollama.png', 'ollama.png', 'logos-new'),
+	MySQL: asset('mysql.svg', 'mysql.svg', 'logos-new'),
+	ScikitLearn: asset('scikit-learn-logo.svg', 'scikit-learn-logo.svg', 'logos-new'),
+	VBA: asset('vba.svg', 'vba.svg', 'logos-new')
 };
 
 export default Assets;
