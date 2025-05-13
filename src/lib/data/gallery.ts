@@ -23,27 +23,152 @@ export type GalleryItem = Screenshot & {
 // Gallery categories
 const categories: Array<GalleryCategory> = [
     {
-        name: 'Drone Photography',
-        slug: 'drone',
-        description: 'Aerial photography taken with my drone during various explorations.'
-    },
-    {
-        name: 'Project Sites',
-        slug: 'project-sites',
-        description: 'Photos from various project locations and workspaces.'
-    },
-    {
         name: 'Meetings & Events',
         slug: 'meetings',
-        description: 'Professional gatherings, workshops, and networking events.'
+        description: 'Professional gatherings, workshops, conferences, and networking events from my career journey.'
+    },
+    {
+        name: 'Drone Hobbies',
+        slug: 'drone',
+        description: 'Aerial photography and videos taken with my drone during adventures.'
     }
 ];
 
 // Gallery items
-const items: Array<GalleryItem> = [    {
-        label: 'Cinematic Drone Landscapes',
+const items: Array<GalleryItem> = [
+    // Meetings & Events - sorted by date, most recent first    
+    {
+        label: 'PETRONAS Core AI Collaboration',
+        src: '/gallery-personal/petronas-ai.JPG',
+        description: 'I participated in small group discussions at KL Convec that explored how AI is being integrated into the future of E&P.',
+        category: 'meetings',
+        date: new Date('2025-03-15'),
+        type: 'image'
+    },    
+    {
+        label: 'PETRONAS Monthly Strategy Alignment',
+        src: '/gallery-personal/petronas-monthlymeeting.JPG',
+        description: 'I supported the team by presenting key metrics and contributing to discussions during the monthly strategy meeting at PETRONAS UTDI. Power BI dashboards I created were used to visualize our OPEX/CAPEX projects and align our digital transformation with MPM goals.',
+        category: 'meetings',
+        date: new Date(2025, 3, 10),
+        type: 'image'
+    },
+    {
+        label: 'KL Summit 20',
+        src: '/gallery-personal/convec-KLSUMMIT.JPG',
+        description: 'At the prestigious KL Summit, key insights on worlds leading markets and the future of energy were shared. The event was a hub for industry leaders and innovators, fostering discussions on the latest trends.',
+        category: 'meetings',
+        date: new Date(2025, 1, 20),
+        type: 'image'
+    },
+    {
+        label: 'Department of Statistics Malaysia: Data Collaboration Workshop',
+        src: '/gallery-personal/dosm-meet-1.JPG',
+        description: 'During the workshop with DOSM, a framework for implementing data analytics for KDNK statistics was shared. Conversations between government officials and private sector helped improve the statistics process.',
+        category: 'meetings',
+        date: new Date(2025, 0, 25),
+        type: 'image'
+    },
+    {
+        label: 'PETRONAS myPROdata Output Review',
+        src: '/gallery-personal/petronas-meet-PD.JPG',
+        description: 'PETRONAS myPROdata is a web-based platform offering greater access and transparency to Malaysia’s E&P data. In this meeting, insights were gained and a Power BI dashboard was created to visualize the data more effectively.',
+        category: 'meetings',
+        date: new Date(2025, 2, 5),
+        type: 'image'
+    },
+    {
+        label: 'Upstream Digital Booth',
+        src: '/gallery-personal/petronas-convec-event.JPG',
+        description: 'The Upstream Digital booth at the PETRONAS Convec event was managed by the UDT department, and I assisted with handling data tasks. This provided an opportunity to engage with energy stakeholders and connect with petroleum engineering peers.',
+        category: 'meetings',
+        date: new Date(2024, 11, 12),
+        type: 'image'
+    },
+    {
+        label: 'PETRONAS Bridge: Section Discussion',
+        src: '/gallery-personal/petronas-bridge.JPG',
+        description: 'Visited the iconic Petronas Bridge, enjoying the views while discussing with colleagues the importance of staying updated on our project timelines. It was a refreshing break that sparked valuable conversations.',
+        category: 'meetings',
+        date: new Date(2024, 10, 18),
+        type: 'image'
+    },
+    {
+        label: 'PETRONAS MotoGP Event',
+        src: '/gallery-personal/petronas-motoGP.JPG',
+        description: 'Stopped by the PETRONAS MotoGP booth at the event, checking out the latest tech.',
+        category: 'meetings',
+        date: new Date(2024, 11, 3),
+        type: 'image'
+    },    
+    {
+        label: 'PETRONAS Digital Workplace Experience',
+        src: '/gallery-personal/petronas-office.JPG',
+        description: 'In the UTDI office, where ideas flow and collaboration is key to moving things forward.',
+        category: 'meetings',
+        date: new Date(2024, 9, 14),
+        type: 'image'
+    },    
+    {
+        label: 'PETRONAS UTDI Office',
+        src: '/gallery-personal/petronas-office-2.JPG',
+        description: 'A moment in the meeting room, where data is turned into visuals with Power BI and some scoresheets that tell a clearer flow and top view.',
+        category: 'meetings',
+        date: new Date(2024, 9, 20),
+        type: 'image'
+    },
+    {
+        label: 'Digital Day',
+        src: '/gallery-personal/petronas-pdd-1.JPG',
+        description: 'At PETRONAS Digital Day, the focus was on innovations shaping a sustainable future, with a strong emphasis on digital solutions driving zero-emission goals in the energy sector. It was an eye-opening experience on how technology is accelerating the shift to cleaner, greener energy.',
+        category: 'meetings',
+        date: new Date(2024, 8, 5),
+        type: 'image'
+    },
+    {
+        label: 'Digital Day - 2',
+        src: '/gallery-personal/petronas-pdd-2.JPG',
+        description: 'PETRONAS Digital Day revealed how the latest digital advancements are subtly reshaping the energy sector. Its clear that technology is no longer just a tool, but a key player in driving the move toward zero emissions.',
+        category: 'meetings',
+        date: new Date(2024, 8, 6),
+        type: 'image'
+    },    
+    {
+        label: 'PETRONAS Research Centre: Data Science Lab',
+        src: '/gallery-personal/petronas-PRC.JPG',
+        description: 'The Data Science Lab at PRC serves as the backbone of analytical exploration, where complex algorithms and data models are crafted to tackle real-world challenges in energy management. Its here that raw data is refined.',
+        category: 'meetings',
+        date: new Date(2024, 7, 22),
+        type: 'image'
+    },
+    {
+        label: 'PETRONAS Hari Raya Celebration',
+        src: '/gallery-personal/petronas-raya.JPG',
+        description: 'Hung out with friends at PETRONAS Hari Raya, just enjoying the vibe and spending time together. Simple, but memorable moments.',
+        category: 'meetings',
+        date: new Date(2024, 4, 15),
+        type: 'image'
+    },
+    {
+        label: 'UTDI Retreat',
+        src: '/gallery-personal/petronas-retreat.JPG',
+        description: 'Spent time at the retreat in Johor, focused on team-building and discussing key strategies for the future. It was a chance to step back, reflect, and align on our Petroleum Management blueprint.',
+        category: 'meetings',
+        date: new Date(2024, 6, 28),
+        type: 'image'
+    },
+    {
+        label: 'Upstream Digital Transformation Summit',
+        src: '/gallery-personal/petronas-upstreamdigital.JPG',
+        description: 'After the retreat in Johor, the UTDI team proudly displayed a huge poster, celebrating our achievements and the journey we have taken together. It was a nice reminder of the teams hard work and growth.',
+        category: 'meetings',
+        date: new Date(2024, 5, 17),
+        type: 'image'
+    },
+    {
+        label: 'Bukit Antarabangsa: City in the Clouds',
         src: '',
-        description: 'Beautiful cinematic drone footage over diverse landscapes and natural environments.',
+        description: 'A stunning bird\'s-eye view of Bukit Antarabangsa, where lush greenery seamlessly blends with Kuala Lumpur\'s urban landscape. This aerial footage captures the hill\'s serene beauty and the city\'s sprawling skyline below, offering a unique perspective of both nature and metropolis.',
         category: 'drone',
         date: new Date(2025, 5, 13),
         type: 'video',
@@ -52,9 +177,9 @@ const items: Array<GalleryItem> = [    {
         videoFormat: 'standard'
     },
     {
-        label: 'Aerial 1',
+        label: 'Hibiscus Haven: Port Dickson',
         src: '',
-        description: 'Drone aerial footage showcasing stunning landscapes and perspectives from above.',
+        description: 'Experience the vibrant charm of Hibiscus Port Dickson, where turquoise waters meet golden shores. This aerial journey captures the serene beauty of the coastline, with the iconic hibiscus landmark standing tall against the backdrop of a perfect seaside escape.',
         category: 'drone',
         date: new Date(2025, 4, 12),
         type: 'video',
@@ -63,9 +188,9 @@ const items: Array<GalleryItem> = [    {
         videoFormat: 'vertical'
     },
     {
-        label: 'Aerial 2 - Horizontal Drone View',
+        label: 'Bukit Senaling Unveiled',
         src: '',
-        description: 'Wide panoramic horizontal drone footage of beautiful landscapes.',
+        description: 'Ascend to new heights with a captivating aerial view of Bukit Senaling. From its dense jungle to sweeping vistas, this video reveals the hidden gems of this tranquil hill, offering a fresh perspective of nature\'s untouched beauty.',
         category: 'drone',
         date: new Date(2025, 4, 11),
         type: 'video',
@@ -74,20 +199,20 @@ const items: Array<GalleryItem> = [    {
         videoFormat: 'horizontal'
     },
     {
-        label: 'Aerial 3 - Vertical Exploration',
+        label: 'Island Escape in Sabah',
         src: '',
-        description: 'Vertical drone footage capturing the beauty from above.',
+        description: 'A hidden gem in Sabah, this aerial view reveals the island\'s pristine beauty, from its sparkling shores to lush greenery. A perfect getaway captured from the sky.',
         category: 'drone',
         date: new Date(2025, 4, 10),
         type: 'video',
-        videoId: 'ibMl5YCkJLE',
+        videoId: 'GMEfI6tBrOU',
         autoplay: false,
         videoFormat: 'vertical'
     },
     {
-        label: 'Aerial 4 - Cinematic Flight',
+        label: 'Empowering YBK\'s Story',
         src: '',
-        description: 'Extended cinematic drone footage with smooth movements and scenic views.',
+        description: 'Created as part of a side project to enhance Yayasan Basmi Kemiskinan\'s marketing, this drone video highlights students\' practice sessions from a stunning aerial perspective, showcasing their passion and determination to succeed.',
         category: 'drone',
         date: new Date(2025, 4, 9),
         type: 'video',
@@ -96,78 +221,15 @@ const items: Array<GalleryItem> = [    {
         videoFormat: 'standard'
     },
     {
-        label: 'Aerial 5 - Landscape Survey',
+        label: 'Tranquility of the Paddy Fields',
         src: '',
-        description: 'Professional drone survey of diverse landscapes and terrains.',
+        description: 'A serene aerial journey over vibrant paddy fields, captured during a family visit to the village after Hari Raya Korban. A harmonious blend of natural beauty and cherished moments.',
         category: 'drone',
         date: new Date(2025, 4, 8),
         type: 'video',
         videoId: 'Z8V1shjZqRc',
         autoplay: false,
         videoFormat: 'standard'
-    },
-    {
-        label: 'Kuala Lumpur Skyline',
-        src: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3VhbGElMjBsdW1wdXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'Aerial view of Kuala Lumpur skyline captured with my DJI Mini drone during sunset.',
-        category: 'drone',
-        date: new Date(2023, 8, 15)
-    },
-    {
-        label: 'Data Analysis Workshop',
-        src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtzaG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-        description: 'Leading a data analysis workshop for PETRONAS team members, sharing insights on Power BI dashboards.',
-        category: 'meetings',
-        date: new Date(2023, 6, 22)
-    },
-    {
-        label: 'Putrajaya Lake',
-        src: 'https://images.unsplash.com/photo-1619879476337-16e429c8cf57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHV0cmFqYXlhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-        description: 'Drone shot of Putrajaya Lake during a weekend exploration flight.',
-        category: 'drone',
-        date: new Date(2023, 10, 5)
-    },
-    {
-        label: 'DOSM Office',
-        src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b2ZmaWNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-        description: 'My workspace at the Department of Statistics Malaysia during the MySTEP program.',
-        category: 'project-sites',
-        date: new Date(2023, 1, 10)
-    },
-    {
-        label: 'SDG Conference 2024',
-        src: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29uZmVyZW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'Sustainable Development Goals conference where I represented the Ministry of Foreign Affairs.',
-        category: 'meetings',
-        date: new Date(2024, 2, 14)
-    },
-    {
-        label: 'UiTM Campus',
-        src: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dW5pdmVyc2l0eSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'UiTM Shah Alam campus where I completed my bachelor\'s degree. Shot during my final semester.',
-        category: 'project-sites',
-        date: new Date(2024, 4, 20)
-    },
-    {
-        label: 'Beach Drone Shot',
-        src: 'https://images.unsplash.com/photo-1566204773863-cf63e6d4ab88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmVhY2glMjBkcm9uZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'Aerial view of Pantai Remis taken during a weekend drone photography session.',
-        category: 'drone',
-        date: new Date(2023, 7, 30)
-    },
-    {
-        label: 'Digital Transformation Meeting',
-        src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaCUyMG1lZXRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'Strategic planning session for PETRONAS digital transformation projects where I served as an accelerator.',
-        category: 'meetings',
-        date: new Date(2023, 9, 12)
-    },
-    {
-        label: 'QGIS Project Map',
-        src: 'https://images.unsplash.com/photo-1569503689347-a5dbdaca7c69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFwcGluZyUyMHByb2plY3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-        description: 'Screenshot from my geospatial text mining final year project, showing tweet distribution across Malaysia.',
-        category: 'project-sites',
-        date: new Date(2024, 1, 25)
     }
 ];
 

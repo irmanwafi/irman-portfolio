@@ -61,10 +61,9 @@
 	<div class="flex flex-col gap-8">
 		<!-- Header with introduction -->
 		<div class="flex flex-col gap-4 text-center py-4">
-			<H1>My Gallery</H1>
+			<H1>Gallery</H1>
 			<Muted class="max-w-3xl mx-auto">
-				A collection of moments from my professional journey, drone photography explorations, and project
-				sites. Browse through these images to get a glimpse of my experiences and interests.
+				A collection of moments from my professional journey, and some hobby/side project. Browse through to get a glimpse of my experiences and interests.
 			</Muted>
 		</div>
 
@@ -103,12 +102,13 @@
 			</div>
 			
 			<Carousel bind:api class="w-full" opts={{ loop: true }}>
-				<CarouselContent>					{#each filteredItems.slice(0, 5) as item}
-						<CarouselItem class="md:basis-1/2 lg:basis-1/3">
+				<CarouselContent class="px-4">
+					{#each filteredItems.slice(0, 6) as item}
+						<CarouselItem class="pl-2 md:basis-1/2 lg:basis-1/3">
 							<Dialog>
-								<DialogTrigger>
+								<DialogTrigger class="w-full">
 									<Card
-										class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[250px] cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15"
+										class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[220px] w-full cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15 overflow-hidden"
 										style={item.type !== 'video' ? `background-image:url("${item.src}")` : ''}
 									>
 										{#if item.type === 'video'}
@@ -130,8 +130,8 @@
 												</div>
 											</div>
 										{/if}
-										<CardFooter class="rounded-b-md bg-[#00000099] pt-4 text-white backdrop-blur-sm">
-											{item.label}
+										<CardFooter class="rounded-b-md bg-[#00000099] pt-3 pb-2 text-white backdrop-blur-sm truncate">
+											<span class="truncate">{item.label}</span>
 										</CardFooter>
 									</Card>
 								</DialogTrigger>
@@ -175,10 +175,13 @@
 											{/if}
 										</div>
 									{:else}
-										<div
-											class="flex-1 bg-cover bg-center bg-no-repeat"
-											style={`background-image: url("${item.src}")`}
-										></div>
+										<div class="flex-1 flex items-center justify-center bg-black/10 overflow-hidden">
+											<img 
+												src={item.src} 
+												alt={item.label}
+												class="max-w-full max-h-[60vh] object-contain"
+											/>
+										</div>
 									{/if}
 									<Muted class="py-2">{item.description}</Muted>
 									<Muted class="text-sm">{formatDate(item.date)}</Muted>
@@ -193,8 +196,8 @@
 						</CarouselItem>
 					{/each}
 				</CarouselContent>
-				<CarouselPrevious />
-				<CarouselNext />
+				<CarouselPrevious className="left-2" />
+				<CarouselNext className="right-2" />
 			</Carousel>
 		</div>
 
@@ -211,7 +214,7 @@
 					<Dialog>
 						<DialogTrigger>
 							<Card
-								class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[200px] cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15"
+								class="flex aspect-video flex-col justify-end bg-cover bg-center bg-no-repeat h-[200px] w-full cursor-pointer transition-all hover:opacity-90 border-white/10 hover:border-white/20 dark:border-white/5 dark:hover:border-white/15 overflow-hidden"
 								style={item.type !== 'video' ? `background-image:url("${item.src}")` : ''}
 							>
 								{#if item.type === 'video'}
@@ -234,8 +237,8 @@
 									</div>
 								{/if}
 								<Separator />
-								<CardFooter class="rounded-b-md bg-[#00000099] pt-4 text-white backdrop-blur-sm">
-									{item.label}
+								<CardFooter class="rounded-b-md bg-[#00000099] pt-3 pb-2 text-white backdrop-blur-sm truncate">
+									<span class="truncate">{item.label}</span>
 								</CardFooter>
 							</Card>
 						</DialogTrigger>
@@ -279,10 +282,13 @@
 									{/if}
 								</div>
 							{:else}
-								<div
-									class="flex-1 bg-cover bg-center bg-no-repeat"
-									style={`background-image: url("${item.src}")`}
-								></div>
+								<div class="flex-1 flex items-center justify-center bg-black/10 overflow-hidden">
+									<img 
+										src={item.src} 
+										alt={item.label}
+										class="max-w-full max-h-[60vh] object-contain"
+									/>
+								</div>
 							{/if}
 							<Muted class="py-2">{item.description}</Muted>
 							<Muted class="text-sm">{formatDate(item.date)}</Muted>
